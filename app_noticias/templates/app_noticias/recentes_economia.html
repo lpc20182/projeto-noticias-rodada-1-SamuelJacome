@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Notícias</title>
+</head>
+<body>
+
+<h1><div><a href="{% url "categoria_detalhes" categoria.slug %}">{{ categoria.nome }}</a></div></h1>
+
+<h2>Notícias recentes</h2>
+<table border="1">
+    <thead>
+        <tr>
+            <th>Titulo</th>
+            <th>Autor</th>
+            
+        </tr> 
+    </thead>
+    <tbody>
+        {% for noticia in noticias %}
+        <tr>
+            <th><div><a href="{% url "detalhes" noticia.pk %}">{{ noticia.titulo }}</a></div></th>
+
+            <th>{{noticia.autor}}</th>
+        </tr>
+
+
+        {% endfor %}
+    </tbody>    
+</table>
+</body>
+</html> 
